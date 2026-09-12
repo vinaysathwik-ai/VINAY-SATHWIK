@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <a href="index.html" class="logo">VINAY SATHWIK MOTAKATLA</a>
+        <a href="home.html" class="logo">VINAY SATHWIK MOTAKATLA</a>
         <i class="fa-solid fa-bars" id="menu-icon"></i>
         <nav class="navbar">
             <a href="#home" class="active">HOME</a>
@@ -23,15 +23,46 @@
             <a href="#contact">CONTACT</a>
         </nav>
     </header>
+
+    <!-- SCROLL INTRO SECTION -->
+    <div id="intro-scroll-track" class="intro-scroll-track">
+        <div class="intro-sticky-viewport">
+            <div class="intro-bg-glow"></div>
+
+            <!-- STAGE 1: WELCOME MESSAGE -->
+            <div class="intro-stage intro-welcome-box" id="intro-welcome">
+                <div class="intro-badge">
+                    <span class="intro-badge-dot"></span>
+                </div>
+                <h1 class="intro-welcome-title">Welcome to my <span>Portfolio</span></h1>
+                <div class="intro-scroll-hint" id="intro-scroll-hint">
+                    <span>Scroll down</span>
+                    <div class="intro-mouse">
+                        <div class="intro-wheel"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STAGE 2 & 3: VINAY SATHWIK -->
+            <div class="intro-stage intro-name-box" id="intro-name">
+                <p class="intro-name-eyebrow">PORTFOLIO OF</p>
+                <h1 class="intro-name-title">VINAY SATHWIK</h1>
+                <p class="intro-name-tagline">DEVELOPER • DESIGNER • INNOVATOR</p>
+            </div>
+        </div>
+    </div>
+
     <section class="home" id="home">
         <div class="home-content">
             <h1>Hi , it's <span>Vinay Sathwik</span></h1>
-            <h3 class="typing-text">I'm a <span></spa></h3>
+            <h3 class="typing-text">I'm a <span></spa>
+            </h3>
             <p>focused on crafting clean, functional, and user-friendly websites. I love bridging the gap between design
                 and technology, utilizing HTML, CSS, JavaScript, and Node.js/React to bring ideas to life. I'm always
                 eager to learn new tools and solve complex problems through code</p>
             <div class="social-icon">
-                <a href="https://www.linkedin.com/in/motakatla-vinay-sathwik-387b94392/"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/motakatla-vinay-sathwik-387b94392/"><i
+                        class="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/vinaysathwik-ai"><i class="fa-brands fa-github"></i></a>
                 <a href="https://x.com/VinaySathwik975"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="https://www.instagram.com/vinay_sathwik_m/"><i class="fa-brands fa-instagram"></i></a>
@@ -54,7 +85,7 @@
                     <div class="skill-item" data-name="JavaScript" data-value="60" data-level="Intermediate"></div>
                 </div>
             </div>
-        
+
 
             <!-- Web Development Radar Chart -->
             <div class="radar-wrapper animate-on-scroll">
@@ -144,7 +175,8 @@
 
         </div>
         <div class="contact-social">
-            <a href="https://www.linkedin.com/in/motakatla-vinay-sathwik-387b94392/"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://www.linkedin.com/in/motakatla-vinay-sathwik-387b94392/"><i
+                    class="fa-brands fa-linkedin-in"></i></a>
             <a href="https://github.com/vinaysathwik-ai"><i class="fa-brands fa-github"></i></a>
             <a href="https://x.com/VinaySathwik975"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://www.instagram.com/vinay_sathwik_m/"><i class="fa-brands fa-instagram"></i></a>
@@ -162,10 +194,10 @@
                     value: parseInt(item.getAttribute("data-value"), 10),
                     level: item.getAttribute("data-level")
                 }));
-                
+
                 const N = skills.length;
                 if (N === 0) return;
-                
+
                 // SVG dimensions & grid radius configuration
                 const size = 500;
                 const xc = 250;
@@ -173,13 +205,13 @@
                 const R = 130;
                 const R_ext = R + 15;
                 const R_label = R + 45;
-                
+
                 // Compute mathematical angles for N vertices (diamond, pentagon, hexagon etc.)
                 const angles = [];
                 for (let i = 0; i < N; i++) {
                     angles.push((2 * Math.PI * i) / N - Math.PI / 2);
                 }
-                
+
                 // Build dynamic SVG contents (using subtle, muted slate colors)
                 let svgContent = `
                     <defs>
@@ -189,7 +221,7 @@
                         </linearGradient>
                     </defs>
                 `;
-                
+
                 // Grid levels (25%, 50%, 75%, 100%)
                 const levels = [0.25, 0.50, 0.75, 1.0];
                 levels.forEach(L => {
@@ -202,18 +234,18 @@
                     const isDashed = (L === 0.25 || L === 0.75) ? 'stroke-dasharray="2,2" stroke-opacity="0.4"' : 'stroke-opacity="0.7"';
                     svgContent += `<polygon points="${points.join(" ")}" fill="none" stroke="var(--border-color)" stroke-width="1.2" ${isDashed} />`;
                 });
-                
+
                 // Axes lines, tick marks, and arrowheads
                 for (let i = 0; i < N; i++) {
                     const angle = angles[i];
                     const cos = Math.cos(angle);
                     const sin = Math.sin(angle);
-                    
+
                     // Radial axis line
                     const x_end = xc + R_ext * cos;
                     const y_end = yc + R_ext * sin;
                     svgContent += `<line x1="${xc}" y1="${yc}" x2="${x_end.toFixed(1)}" y2="${y_end.toFixed(1)}" stroke="#475569" stroke-width="1.2" stroke-dasharray="4,4" />`;
-                    
+
                     // Perpendicular ticks along the axis at 25%, 50%, 75%, 100%
                     levels.forEach(L => {
                         const d = R * L;
@@ -226,7 +258,7 @@
                         const y2 = ty - cos * tickLen;
                         svgContent += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="#475569" stroke-width="1.2" />`;
                     });
-                    
+
                     // Arrowhead pointing outwards at the tip of the axis
                     const arrowLength = 8;
                     const arrowWidth = 4;
@@ -238,10 +270,10 @@
                     const pt1_y = y_end - sin * arrowLength + py;
                     const pt2_x = x_end - cos * arrowLength - px;
                     const pt2_y = y_end - sin * arrowLength - py;
-                    
+
                     svgContent += `<polygon points="${x_arrow.toFixed(1)},${y_arrow.toFixed(1)} ${pt1_x.toFixed(1)},${pt1_y.toFixed(1)} ${pt2_x.toFixed(1)},${pt2_y.toFixed(1)}" fill="#475569" />`;
                 }
-                
+
                 // Muted values polygon
                 const valPoints = [];
                 for (let i = 0; i < N; i++) {
@@ -251,37 +283,37 @@
                     const y = yc + (R * (val / 100)) * Math.sin(angle);
                     valPoints.push(`${x.toFixed(1)},${y.toFixed(1)}`);
                 }
-                
+
                 svgContent += `<polygon points="${valPoints.join(" ")}" fill="url(#poly-grad-muted)" stroke="rgba(148, 163, 184, 0.8)" stroke-width="2.5" class="radar-poly" />`;
-                
+
                 // Create SVG node
                 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
                 svg.setAttribute("viewBox", "0 0 500 500");
                 svg.setAttribute("class", "radar-chart");
                 svg.innerHTML = svgContent;
-                
+
                 container.appendChild(svg);
-                
+
                 // Dynamic labels positioned centered around the outer perimeter of the SVG
                 skills.forEach((skill, i) => {
                     const angle = angles[i];
                     const x_label = xc + R_label * Math.cos(angle);
                     const y_label = yc + R_label * Math.sin(angle);
-                    
+
                     const leftPct = (x_label / size) * 100;
                     const topPct = (y_label / size) * 100;
-                    
+
                     const labelDiv = document.createElement("div");
                     labelDiv.className = "skill-label";
                     labelDiv.style.left = `${leftPct.toFixed(1)}%`;
                     labelDiv.style.top = `${topPct.toFixed(1)}%`;
                     labelDiv.style.transform = "translate(-50%, -50%)";
-                    
+
                     labelDiv.innerHTML = `
                         <h4>${skill.name}</h4>
                         <p>${skill.level} • ${skill.value}%</p>
                     `;
-                    
+
                     container.appendChild(labelDiv);
                 });
             });
@@ -310,12 +342,100 @@
             navbar.classList.toggle('active');
         };
 
+        // ==========================================
+        // SCROLL-DRIVEN INTRO ANIMATION LOGIC
+        // ==========================================
+        const introTrack = document.getElementById('intro-scroll-track');
+        const introWelcome = document.getElementById('intro-welcome');
+        const introName = document.getElementById('intro-name');
+        const introHint = document.getElementById('intro-scroll-hint');
+        const headerEl = document.querySelector('header');
+
+        function updateIntroAnimation() {
+            if (!introTrack || !introWelcome || !introName) return;
+
+            const trackHeight = introTrack.offsetHeight;
+            const viewportHeight = window.innerHeight;
+            const maxScroll = Math.max(1, trackHeight - viewportHeight);
+
+            // Current scroll progress inside the intro track: 0.0 to 1.0
+            const scrollY = window.scrollY;
+            const progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
+
+            // 1. Stage 1: Welcome message (0.0 to 0.35)
+            // "goes back and disappears when we are scrolling down"
+            if (progress <= 0.35) {
+                const p = progress / 0.35;
+                const scale = 1 - p * 0.45; // scales from 1.0 down to 0.55
+                const translateZ = -p * 300; // pushes backward in 3D
+                const opacity = Math.max(0, 1 - p * 1.05);
+                const blur = p * 8;
+
+                introWelcome.style.display = 'flex';
+                introWelcome.style.opacity = opacity;
+                introWelcome.style.transform = `scale(${scale}) translateZ(${translateZ}px)`;
+                introWelcome.style.filter = `blur(${blur}px)`;
+            } else {
+                introWelcome.style.opacity = '0';
+                introWelcome.style.display = 'none';
+            }
+
+            // Scroll hint indicator fades out quickly on initial scroll
+            if (introHint) {
+                introHint.style.opacity = Math.max(0, 1 - (progress / 0.1));
+            }
+
+            // 2. Stage 2 & 3: "VINAY SATHWIK"
+            // "and then my name 'VINAY SATHWIK' should be appear and then while scrolling the name should go up the original matter should be visible"
+            if (progress < 0.28) {
+                introName.style.opacity = '0';
+                introName.style.display = 'none';
+            } else if (progress >= 0.28 && progress < 0.65) {
+                // Name appears and centers
+                introName.style.display = 'flex';
+                const p = (progress - 0.28) / (0.65 - 0.28);
+                const opacity = Math.min(1, p * 1.25);
+                const scale = 0.8 + p * 0.2; // 0.8 -> 1.0
+                const translateY = 40 * (1 - p); // 40px -> 0px
+                const blur = (1 - Math.min(1, p * 1.2)) * 6;
+
+                introName.style.opacity = opacity;
+                introName.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+                introName.style.filter = `blur(${blur}px)`;
+            } else if (progress >= 0.65 && progress <= 1.0) {
+                // Name glides UP and dissolves as original matter rolls in
+                introName.style.display = 'flex';
+                const p = (progress - 0.65) / (1.0 - 0.65);
+                const opacity = Math.max(0, 1 - p);
+                const translateY = -p * 150; // moves UP!
+                const scale = 1.0 - p * 0.08;
+                const blur = p * 6;
+
+                introName.style.opacity = opacity;
+                introName.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+                introName.style.filter = `blur(${blur}px)`;
+            } else {
+                introName.style.opacity = '0';
+                introName.style.display = 'none';
+            }
+
+            // Reveal Header smoothly when approaching the original content
+            if (progress >= 0.85 || scrollY >= maxScroll) {
+                headerEl.classList.add('header-visible');
+            } else {
+                headerEl.classList.remove('header-visible');
+            }
+        }
+
         window.onscroll = () => {
             let top = window.scrollY;
 
             // Close mobile menu on scroll
             menuIcon.classList.remove('fa-xmark');
             navbar.classList.remove('active');
+
+            // Update intro animation
+            updateIntroAnimation();
 
             sections.forEach(sec => {
                 let offset = sec.offsetTop - 200; // offset slightly to trigger right before it centers
@@ -334,6 +454,11 @@
                 }
             });
         };
+
+        // Initialize immediately on page load and window resize
+        window.addEventListener('resize', updateIntroAnimation);
+        window.addEventListener('DOMContentLoaded', updateIntroAnimation);
+        updateIntroAnimation();
     </script>
 </body>
 
