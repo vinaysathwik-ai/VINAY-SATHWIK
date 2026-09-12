@@ -3,15 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>VINAYSATHWIK</title>
 </head>
 
 <body>
+    <!-- THEME TOGGLE BUTTON -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+        <i class="fa-solid fa-sun"></i>
+    </button>
+
     <header>
         <a href="home.html" class="logo">VINAY SATHWIK MOTAKATLA</a>
         <i class="fa-solid fa-bars" id="menu-icon"></i>
@@ -459,6 +463,38 @@
         window.addEventListener('resize', updateIntroAnimation);
         window.addEventListener('DOMContentLoaded', updateIntroAnimation);
         updateIntroAnimation();
+
+        // ==========================================
+        // LUXURY LIGHT / DARK THEME TOGGLE
+        // ==========================================
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+
+        function applyTheme(theme) {
+            if (theme === 'light') {
+                document.body.classList.add('light-theme');
+                document.documentElement.classList.add('light-theme-html');
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+                themeToggleBtn.setAttribute('title', 'Switch to Dark Mode');
+            } else {
+                document.body.classList.remove('light-theme');
+                document.documentElement.classList.remove('light-theme-html');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+                themeToggleBtn.setAttribute('title', 'Switch to Luxury Light Mode');
+            }
+        }
+
+        const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+        applyTheme(savedTheme);
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            applyTheme(newTheme);
+            localStorage.setItem('portfolio-theme', newTheme);
+        });
     </script>
 </body>
 
