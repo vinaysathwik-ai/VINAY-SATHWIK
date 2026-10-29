@@ -26,11 +26,11 @@ body.light-theme {
     --bg-color: #FAF8F5; /* Warm luxury ivory alabaster */
     --second-bg-color: #FFFFFF; /* Pure pearl marble */
     --text-color: #1A1816; /* Deep rich obsidian charcoal */
-    --main-color: #8C6D3B; /* Antique champagne gold */
-    --secondary-color: #574F46; /* Warm bronze taupe */
-    --glow-color: rgba(140, 109, 59, 0.25);
-    --card-glow: rgba(0, 0, 0, 0.05);
-    --border-color: #E6E1D7; /* Delicate champagne border */
+    --main-color: #C29F58; /* Refined luminous light champagne gold */
+    --secondary-color: #6E665D; /* Soft warm taupe */
+    --glow-color: rgba(194, 159, 88, 0.22);
+    --card-glow: rgba(0, 0, 0, 0.04);
+    --border-color: #EDE7DE; /* Delicate champagne border */
     --skills-dash: #8fa08e; /* Sage green dashed divider like image 2 */
     --pill-bg: #FFFFFF;
     --pill-border: #22201d;
@@ -225,37 +225,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.2rem;
-    color: var(--main-color);
-    font-size: 1.3rem;
-    letter-spacing: 2px;
+    gap: 0.8rem;
+    color: var(--secondary-color);
+    font-family: var(--mono-font);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 3px;
     text-transform: uppercase;
     transition: opacity 0.3s ease;
-}
-
-.intro-mouse {
-    width: 24px;
-    height: 38px;
-    border: 2px solid rgba(148, 163, 184, 0.5);
-    border-radius: 12px;
-    position: relative;
-}
-
-.intro-wheel {
-    width: 4px;
-    height: 8px;
-    background: var(--main-color);
-    border-radius: 2px;
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: mouseScroll 1.8s infinite;
-}
-
-@keyframes mouseScroll {
-    0% { opacity: 1; transform: translate(-50%, 0); }
-    100% { opacity: 0; transform: translate(-50%, 14px); }
 }
 
 /* Stage 2 & 3: Name Box */
@@ -265,10 +242,11 @@ body {
 }
 
 .intro-name-eyebrow {
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: 5px;
-    color: var(--main-color);
+    font-family: var(--mono-font);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+    color: var(--secondary-color);
     text-transform: uppercase;
     margin-bottom: 1.5rem;
 }
@@ -323,8 +301,10 @@ header.header-visible {
 }
 
 .logo {
-    font-size: 2.2rem;
-    color: var(--main-color);
+    font-size: 2.3rem;
+    font-family: var(--display-font);
+    letter-spacing: 2px;
+    color: var(--text-color);
     font-weight: 800;
     transition: 0.3s;
     opacity: 0;
@@ -334,8 +314,8 @@ header.header-visible {
 }
 
 .logo:hover {
-    color: #0093fc;
-    transform: scale(1.05);
+    color: var(--main-color);
+    transform: scale(1.03);
 }
 
 .navbar {
@@ -1367,56 +1347,78 @@ body.light-theme .intro-sticky-viewport {
 }
 
 body.light-theme .intro-bg-glow {
-    background: radial-gradient(circle, rgba(140, 109, 59, 0.18) 0%, rgba(212, 175, 55, 0.08) 45%, transparent 70%);
+    background: radial-gradient(circle, rgba(194, 159, 88, 0.12) 0%, rgba(212, 185, 125, 0.04) 45%, transparent 70%);
 }
 
 body.light-theme .intro-badge {
-    background: rgba(140, 109, 59, 0.08);
-    border: 1px solid rgba(140, 109, 59, 0.3);
+    background: rgba(194, 159, 88, 0.08);
+    border: 1px solid rgba(194, 159, 88, 0.25);
     color: var(--main-color);
-    box-shadow: 0 0 20px rgba(140, 109, 59, 0.08);
+    box-shadow: 0 0 20px rgba(194, 159, 88, 0.08);
 }
 
 body.light-theme .intro-badge-dot {
-    background: #8C6D3B;
-    box-shadow: 0 0 10px #8C6D3B;
+    background: #C29F58;
+    box-shadow: 0 0 10px #C29F58;
 }
 
 body.light-theme .intro-welcome-title {
     color: #1A1816;
-    text-shadow: 0 2px 25px rgba(140, 109, 59, 0.15);
+    text-shadow: 0 2px 25px rgba(0, 0, 0, 0.06);
 }
 
 body.light-theme .intro-welcome-title span {
-    background: linear-gradient(135deg, #1A1816 0%, #4A3B2C 40%, #8C6D3B 80%, #6E5434 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-body.light-theme .intro-mouse {
-    border-color: rgba(140, 109, 59, 0.5);
-}
-
-body.light-theme .intro-wheel {
-    background: var(--main-color);
-}
-
-body.light-theme .intro-name-eyebrow {
-    color: var(--main-color);
-    letter-spacing: 6px;
+    background: none;
+    -webkit-text-fill-color: #1A1816;
+    color: #1A1816;
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
     font-weight: 700;
 }
 
+body.light-theme .intro-scroll-hint {
+    color: #4A443E;
+    font-family: var(--mono-font);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+body.light-theme .intro-name-eyebrow {
+    color: #1A1816;
+    font-family: var(--mono-font);
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 6px;
+}
+
 body.light-theme .intro-name-title {
-    background: linear-gradient(135deg, #1A1816 0%, #3D3227 30%, #8C6D3B 70%, #5E4A32 100%);
+    background: linear-gradient(135deg, #0D0C0B 0%, #25221F 40%, #1A1816 70%, #302B25 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 20px rgba(140, 109, 59, 0.25));
+    filter: drop-shadow(0 2px 18px rgba(0, 0, 0, 0.08));
+    font-family: "Cinzel", "Playfair Display", Georgia, serif;
 }
 
 body.light-theme .intro-name-tagline {
     color: var(--secondary-color);
-    letter-spacing: 4px;
+    font-family: var(--mono-font);
+    letter-spacing: 3px;
+    font-size: 1.3rem;
+}
+
+body.light-theme .home-content h1 span {
+    color: #1A1816;
+    font-family: "Playfair Display", Georgia, serif;
+    font-style: italic;
+    font-weight: 700;
+}
+
+body.light-theme .typing-text span::before {
+    color: #1A1816;
+    font-family: var(--mono-font);
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 body.light-theme header {
@@ -1462,13 +1464,13 @@ body.light-theme .contact-social a:hover {
 }
 
 body.light-theme .btn {
-    background: linear-gradient(135deg, #8C6D3B 0%, #6E5434 100%);
+    background: linear-gradient(135deg, #D4B87C 0%, #BA9554 100%);
     color: #FFFFFF;
-    box-shadow: 0 4px 20px rgba(140, 109, 59, 0.35);
+    box-shadow: 0 4px 20px rgba(194, 159, 88, 0.28);
 }
 
 body.light-theme .btn:hover {
-    box-shadow: 0 6px 25px rgba(140, 109, 59, 0.5);
+    box-shadow: 0 6px 25px rgba(194, 159, 88, 0.45);
 }
 
 body.light-theme .skills-main-title,
@@ -1544,19 +1546,42 @@ body.light-theme .cert-header h3 {
 }
 
 body.light-theme .theme-toggle {
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(140, 109, 59, 0.35);
-    color: #8C6D3B;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(194, 159, 88, 0.35);
+    color: #B38F48;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
 body.light-theme .theme-toggle:hover {
-    box-shadow: 0 0 25px rgba(140, 109, 59, 0.35);
-    color: #4A3B2C;
+    box-shadow: 0 0 25px rgba(194, 159, 88, 0.35);
+    color: #8C6D3B;
 }
 
-@media (min-width: 1201px) {
+/* OUTSIDE THE PORTFOLIO BOX:
+   On desktop, the 1000px portfolio container is centered.
+   Placing the toggle at left: calc(50% + 515px) floats it 15px outside the right border of the portfolio box,
+   completely out of the header and box so it never blocks any options. */
+@media (min-width: 1120px) {
     .theme-toggle {
-        right: calc(50% - 470px);
+        left: calc(50% + 515px);
+        right: auto;
+        top: 2rem;
+    }
+}
+
+@media (max-width: 1119px) and (min-width: 996px) {
+    .theme-toggle {
+        right: 2.5rem;
+        top: 1.6rem;
+    }
+    header {
+        padding-right: 8rem;
+    }
+}
+
+@media (max-width: 995px) {
+    .theme-toggle {
+        right: 7.5rem;
+        top: 1.8rem;
     }
 }
